@@ -1,0 +1,10 @@
+{
+    "AI_in_Biology": {
+        "video": "https://www.youtube.com/embed/YOUR_CONCEPT1_VIDEO",
+        "title": "## Key Concepts of File Handling in Python",
+        "image": {
+            "url": "https://your-image-url.com",
+            "caption": "File Handling Illustration"
+        },
+            "description": "**File Handling in Python**\n\nFile handling in Python enables efficient reading, writing, and management of files, supporting data persistence and processing. Using built-in functions like `open()`, `read()`, and `write()`, Python simplifies file operations for various applications.\n\nKey concepts include:\n- **File Operations:** Reading, writing, appending, and deleting files to manage data.\n- **File Modes:** Options like 'r' (read), 'w' (write), and 'a' (append) for flexible file access.\n- **Error Handling:** Using try-except to manage issues like missing files or permission errors.\n- **Specialized Formats:** Processing CSV and JSON files with dedicated modules.\n\nThis section explores these concepts and their role in robust Python programming."    }
+}

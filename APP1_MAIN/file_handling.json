@@ -1,0 +1,188 @@
+{
+    "title": "File Handling in Python",
+    "introduction": "File handling in Python involves reading from and writing to files, enabling data persistence and manipulation. Python provides built-in functions and methods to handle files efficiently.",
+    "sections": [
+      {
+        "section_title": "File Operations",
+        "content": [
+          "Reading: Retrieve data from a file.",
+          "Writing: Store data in a file.",
+          "Appending: Add data to the end of a file.",
+          "Creating: Create a new file if it doesn't exist.",
+          "Deleting: Remove a file."
+        ]
+      },
+      {
+        "section_title": "File Modes",
+        "content": [
+          "'r': Read (default). Error if file doesn't exist.",
+          "'w': Write. Creates a new file or overwrites existing file.",
+          "'a': Append. Adds data to the end; creates file if it doesn't exist.",
+          "'x': Exclusive creation. Creates a new file; fails if file exists.",
+          "'r+': Read and write. File must exist.",
+          "'w+': Write and read. Overwrites or creates a new file.",
+          "'a+': Append and read. Adds to the end; creates file if it doesn't exist.",
+          "Add 'b' for binary mode (e.g., 'rb', 'wb') for non-text files like images.",
+          "Add 't' for text mode (default, e.g., 'rt') for text files."
+        ]
+      },
+      {
+        "section_title": "Opening and Closing Files",
+        "content": [
+          "Use the open() function to open a file.",
+          "Always close a file using close() to free system resources.",
+          "Syntax: file = open('filename', 'mode')",
+          "Best Practice: Use 'with' statement to automatically close files."
+        ],
+        "examples": [
+          {
+            "description": "Basic file opening",
+            "code": "file = open('example.txt', 'r')\ncontent = file.read()\nfile.close()"
+          },
+          {
+            "description": "Using with statement",
+            "code": "with open('example.txt', 'r') as file:\n    content = file.read()"
+          }
+        ]
+      },
+      {
+        "section_title": "Reading Files",
+        "content": [
+          "read(): Reads entire file content as a string.",
+          "readline(): Reads one line at a time.",
+          "readlines(): Reads all lines into a list.",
+          "Loop through lines: Iterate over file object to read line by line."
+        ],
+        "examples": [
+          {
+            "description": "Using read()",
+            "code": "with open('example.txt', 'r') as file:\n    content = file.read()"
+          },
+          {
+            "description": "Using readline()",
+            "code": "with open('example.txt', 'r') as file:\n    line = file.readline()"
+          },
+          {
+            "description": "Using readlines()",
+            "code": "with open('example.txt', 'r') as file:\n    lines = file.readlines()"
+          },
+          {
+            "description": "Loop through lines",
+            "code": "with open('example.txt', 'r') as file:\n    for line in file:\n        print(line.strip())"
+          }
+        ]
+      },
+      {
+        "section_title": "Writing to Files",
+        "content": [
+          "write(): Writes a string to the file.",
+          "writelines(): Writes a list of strings.",
+          "Note: 'w' mode overwrites the file. Use 'a' to append."
+        ],
+        "examples": [
+          {
+            "description": "Using write()",
+            "code": "with open('example.txt', 'w') as file:\n    file.write('Hello, World!')"
+          },
+          {
+            "description": "Using writelines()",
+            "code": "lines = ['Line 1\\n', 'Line 2\\n']\nwith open('example.txt', 'w') as file:\n    file.writelines(lines)"
+          }
+        ]
+      },
+      {
+        "section_title": "Appending to Files",
+        "content": [
+          "Use 'a' mode to add content without overwriting."
+        ],
+        "examples": [
+          {
+            "description": "Appending text",
+            "code": "with open('example.txt', 'a') as file:\n    file.write('\\nNew line appended')"
+          }
+        ]
+      },
+      {
+        "section_title": "File Positioning",
+        "content": [
+          "tell(): Returns the current position of the file cursor.",
+          "seek(offset, whence): Moves the cursor to a specific position.",
+          "offset: Number of bytes to move.",
+          "whence: Reference point (0: start, 1: current position, 2: end)."
+        ],
+        "examples": [
+          {
+            "description": "Using tell()",
+            "code": "with open('example.txt', 'r') as file:\n    print(file.tell())"
+          },
+          {
+            "description": "Using seek()",
+            "code": "with open('example.txt', 'r') as file:\n    file.seek(5)\n    content = file.read()"
+          }
+        ]
+      },
+      {
+        "section_title": "Working with Binary Files",
+        "content": [
+          "Use binary mode ('rb', 'wb') for non-text files (e.g., images, videos)."
+        ],
+        "examples": [
+          {
+            "description": "Reading and writing binary files",
+            "code": "with open('image.jpg', 'rb') as file:\n    data = file.read()\nwith open('copy.jpg', 'wb') as file:\n    file.write(data)"
+          }
+        ]
+      },
+      {
+        "section_title": "Error Handling",
+        "content": [
+          "Use try-except to handle file-related errors (e.g., file not found)."
+        ],
+        "examples": [
+          {
+            "description": "Handling file errors",
+            "code": "try:\n    with open('example.txt', 'r') as file:\n        content = file.read()\nexcept FileNotFoundError:\n    print('File not found!')\nexcept PermissionError:\n    print('Permission denied!')"
+          }
+        ]
+      },
+      {
+        "section_title": "File and Directory Management",
+        "content": [
+          "Use the os module for file operations like deleting or checking existence."
+        ],
+        "examples": [
+          {
+            "description": "File management operations",
+            "code": "import os\n\n# Check if file exists\nif os.path.exists('example.txt'):\n    print('File exists')\n\n# Delete a file\nos.remove('example.txt')\n\n# Rename a file\nos.rename('old_name.txt', 'new_name.txt')\n\n# Get file size\nsize = os.path.getsize('example.txt')"
+          }
+        ]
+      },
+      {
+        "section_title": "Common File Formats",
+        "content": [
+          "CSV Files: Use the csv module.",
+          "JSON Files: Use the json module."
+        ],
+        "examples": [
+          {
+            "description": "Reading CSV files",
+            "code": "import csv\nwith open('data.csv', 'r') as file:\n    reader = csv.reader(file)\n    for row in reader:\n        print(row)"
+          },
+          {
+            "description": "Reading JSON files",
+            "code": "import json\nwith open('data.json', 'r') as file:\n    data = json.load(file)"
+          }
+        ]
+      },
+      {
+        "section_title": "Key Points",
+        "content": [
+          "Always use the with statement to ensure proper file closure.",
+          "Choose the correct mode ('r', 'w', 'a', etc.) for your task.",
+          "Handle exceptions to make your code robust.",
+          "Use appropriate modules (csv, json, etc.) for specific file formats.",
+          "Be cautious with 'w' mode, as it overwrites existing files."
+        ]
+      }
+    ]
+  }

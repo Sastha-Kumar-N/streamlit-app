@@ -42,7 +42,7 @@ st.markdown("""
 
 # Add logo to the top of the sidebar
 with st.sidebar:
-    st.image("drupal.png", width=125, caption="BGDB-AI-ML", use_container_width=False)
+    st.image("drupal.png", use_container_width=True, caption="BGDB-AI-ML")
 
 st.markdown("""
     <style>
